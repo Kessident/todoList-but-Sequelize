@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="public/css/index.css">
   </head>
   <body>
-    <form action="/list" method="post">
-      <input type="text" name="todo" placeholder="New Todo" autofocus><button type="submit">Enter</button>
+    <form class="todoForm" action="/list" method="post">
+      <input class="todoInput" type="text" name="todo" placeholder="New Todo" autofocus><button type="submit">Enter</button><span class="error"></span>
     </form>
     <h1>Todo Items</h1>
     <ul>
@@ -31,5 +31,6 @@
     <form action="/deleteComplete" method="post">
       <button type="submit">Delete All Completed Todos</button>
     </form>
+    <script type="text/javascript" src="public/js/index.js"></script>
   </body>
 </html>
