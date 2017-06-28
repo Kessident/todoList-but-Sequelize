@@ -3,9 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>TodoList</title>
-    <!-- <link rel="stylesheet" href="/css/index.css"> -->
+    <link rel="stylesheet" href="public/css/index.css">
   </head>
   <body>
+    <form action="/list" method="post">
+      <input type="text" name="todo" placeholder="New Todo" autofocus><button type="submit">Enter</button>
+    </form>
+    <h1>Todo Items</h1>
+    <ul>
+      {{#todo}}
+      {{^completed}}
+        <li>{{name}}<form action="/list/{{id}}/complete" method="post"><button type="submit">Completed</button></form><form action="/list/{{id}}/delete" method="post"><button type="submit">DELETE</button></form></li>
+      {{/completed}}
+    {{/todo}}
+    </ul>
 
+    <h1>Completed Items</h1>
+    <ul>
+    {{#todo}}
+      {{#completed}}
+        <li><del>{{name}}</del>
+        <form action="/list/{{id}}/delete" method="post"><button type="submit">DELETE</button></form></li>
+      {{/completed}}
+    {{/todo}}
+    </ul>
+
+    <form action="/deleteComplete" method="post">
+      <button type="submit">Delete All Completed Todos</button>
+    </form>
   </body>
 </html>
