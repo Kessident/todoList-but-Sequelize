@@ -1,6 +1,3 @@
 li {
   display: flex;
 }
-li > span{
-  width: 30px;
-}
